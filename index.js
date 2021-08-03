@@ -10,7 +10,18 @@ const tutorials = [
   'what is the difference between event capturing and bubbling?',
   'what is JSONP?'
 ];
+//map over tutorials
+//we need to split sentences into words
+//after seprating the words capitalize each word
 
-const titleCased = () => {
-  return tutorials
+
+
+const titleCased = (input) => {
+  return tutorials.map( line => {
+    const tokens = line.split(' ');
+    const capitalizedTokens =
+      tokens.map( token => token.charAt(0).toUpperCase()+ token.slice(1));
+    const response = capitalizedTokens.join(' ');
+    return response;
+  });
 }
